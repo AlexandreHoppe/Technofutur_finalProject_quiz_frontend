@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
-import { GlobalScore } from './Components/global-score/global-score';
+import { GlobalScore } from './Components/user/global-score/global-score';
 import { HomePage } from './Components/home-page/home-page';
-import { PersonalScore } from './Components/personal-score/personal-score';
-import { Profile } from './Components/profile/profile';
-import { CreateQuiz } from './Components/create-quiz/create-quiz';
-import { RandomQuiz } from './Components/random-quiz/random-quiz';
-import { FindQuiz } from './Components/find-quiz/find-quiz';
-import { ContinueQuiz } from './Components/continue-quiz/continue-quiz';
+import { PersonalScore } from './Components/user/personal-score/personal-score';
+import { Profile } from './Components/user/profile/profile';
+import { CreateQuiz } from './Components/quiz/create-quiz/create-quiz';
+import { RandomQuiz } from './Components/quiz/random-quiz/random-quiz';
+import { FindQuiz } from './Components/quiz/find-quiz/find-quiz';
+import { ContinueQuiz } from './Components/quiz/continue-quiz/continue-quiz';
+import { ApplicationConfig } from '@angular/core';
 
 export const routes: Routes = [
     { path: '', component: HomePage },

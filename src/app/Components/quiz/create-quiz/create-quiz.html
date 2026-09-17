@@ -1,0 +1,21 @@
+<form [formGroup]="createQuizForm" (submit)="createQuiz()">
+    <input type="number" placeholder="Number of Questions" formControlName="quiz_length"/>
+
+    <select formControlName="quiz_type">
+        <option value="">Choose the quiz mode</option>
+        <option value="Text-Mode">Text Mode</option>
+        <option value="Multiple-Choice">Multiple Choice</option>
+        <option value="Party-Mode">Party Mode</option>
+    </select>
+
+    <select formControlName="quiz_category">
+        <option value="">Choose the quiz category</option>
+        @for (category of question_categories; track category) {
+            <option value="{{ category }}">{{ category }}</option>
+        }
+    </select>
+
+    <input type="text" placeholder="quiz Name" formControlName="quiz_name"/>
+
+    <button type="submit">Submit</button>
+</form>
