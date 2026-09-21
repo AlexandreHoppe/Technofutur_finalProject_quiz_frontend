@@ -1,0 +1,6 @@
+
+<!-- <p>{{ErrorMessage}}</p> -->
+@for (missingMessage of missingMessages; track $index) {
+    <p>{{missingMessage}}</p>
+}
+<button type="button" (click)="errorNoticed()">Ok</button>

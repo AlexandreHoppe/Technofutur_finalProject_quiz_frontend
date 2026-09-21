@@ -2,14 +2,18 @@
     <input type="number" placeholder="Number of Questions" formControlName="quiz_length"/>
 
     <select formControlName="quiz_type">
-        <option value="">Choose the quiz mode</option>
+        @if (quizTypeIs) {
+            <option value="">Choose the quiz mode</option>
+        }
         <option value="Text-Mode">Text Mode</option>
         <option value="Multiple-Choice">Multiple Choice</option>
         <option value="Party-Mode">Party Mode</option>
     </select>
 
     <select formControlName="quiz_category">
-        <option value="">Choose the quiz category</option>
+        @if (quizCategoryIs) {
+            <option value="">Choose the quiz category</option>
+        }
         @for (category of question_categories; track category) {
             <option value="{{ category }}">{{ category }}</option>
         }
@@ -19,3 +23,8 @@
 
     <button type="submit">Submit</button>
 </form>
+@if (submissionValidation) {
+<div class="invalid-submission-overlay">
+    <app-invalid-submission (newSubmissionValidation)="errorNoticed($event)" [missingRequirement]="quizValidation"/>   
+</div>
+}
