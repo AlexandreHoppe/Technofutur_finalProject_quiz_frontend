@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChange, SimpleChanges, input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { QuizService } from '../quiz-Service/quiz.service';
-import { InvalidSubmission } from '../../regulation/invalid-submission/invalid-submission';
-import { create } from 'node:domain';
+import { InvalidSubmission } from '../../../regulation/invalid-submission/invalid-submission';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [ReactiveFormsModule, InvalidSubmission],
@@ -22,7 +22,7 @@ export class CreateQuiz implements OnInit {
   submissionValidation : boolean = false;
   @Output() newSubmissionValidation = new EventEmitter<boolean>()
 
-  constructor(private formBuilder : FormBuilder, private quizService: QuizService){
+  constructor(private formBuilder : FormBuilder, private quizService: QuizService, private router:Router){
     this.createQuizForm = this.formBuilder.group({
       quiz_length : [0, [Validators.required, Validators.min(5), Validators.max(100)]],
       quiz_category : ['', Validators.required],
@@ -68,6 +68,7 @@ export class CreateQuiz implements OnInit {
       next: (res) => console.log('Quiz created: ', res),
       error: (err) => console.error('Error: ', err)
     });
+    this.router.navigate(['/QuizQuestion'])
   }
 
   errorNoticed(newSubmissionValidation : boolean){
