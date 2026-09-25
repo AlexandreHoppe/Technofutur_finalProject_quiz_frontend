@@ -29,6 +29,8 @@ export class InvalidSubmission {
         case "quiz_name" :
           this.missingMessages.push("The quiz require a name.");
           break;
+        case "answerFormText" :
+          this.missingMessages.push("No answer");
       }
     }
   }

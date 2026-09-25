@@ -33,10 +33,10 @@ export class CreateQuiz implements OnInit {
 
   ngOnInit(): void {
     this.quizService.getQuestionCategory().subscribe({
-      next: (questions) => {
+      next: (question_categories) => {
         this.question_categories = [
           ...new Set(
-            questions.data.map(
+            question_categories.data.map(
               (question:any) => question.question_category
             )
           )
@@ -44,7 +44,7 @@ export class CreateQuiz implements OnInit {
       },
       error: (err: unknown) => {
         console.error('Error loading question: ', err);
-      } 
+      }
     });
 
     this.createQuizForm.get('quiz_type')?.valueChanges.subscribe((selectedType) => {this.quizTypeIs = selectedType === '';});
@@ -67,8 +67,11 @@ export class CreateQuiz implements OnInit {
     this.quizService.createQuiz(quizSetting).subscribe({
       next: (res) => console.log('Quiz created: ', res),
       error: (err) => console.error('Error: ', err)
-    });
-    this.router.navigate(['/QuizQuestion'])
+    }); 
+    const quizName = this.createQuizForm.get('quiz_name')?.value;
+    console.log(quizName);
+
+    this.router.navigate(['/QuizQuestion', quizName]);
   }
 
   errorNoticed(newSubmissionValidation : boolean){

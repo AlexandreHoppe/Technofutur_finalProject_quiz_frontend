@@ -1,0 +1,17 @@
+<p>{{question_Question() || 'Loading...'}}</p>
+<form [formGroup]="answerForm" (submit)="submitAnswer()">
+    <input type="text" formControlName="answerFormText"/>
+    <button type="submit">Answer</button>
+</form>
+
+@if (submissionValidation()) {
+    <div class="invalid-submission-overlay">
+        <app-invalid-submission (newSubmissionValidation)="errorNoticed($event)" [missingRequirement]="submissionError()"/>   
+    </div>
+}
+
+@if (answerSubmitted()){
+    <div class="aswer-overlay">
+        <app-quiz-answer (nextQuestionConfirm)="nextQuestion($event)" [answeredQuestion]="answerText()" [quizName]="quizName()"></app-quiz-answer>
+    </div>
+}

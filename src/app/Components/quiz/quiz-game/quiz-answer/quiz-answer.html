@@ -1,0 +1,9 @@
+    <p>{{questionAnswered()}}/{{quizLength()}}</p>
+    <p>Question {{questionAnswered()}}</p>
+    <p>{{resultQuestion()}}</p>
+    <p>{{scoreQuestion()}} point</p>
+    @if (resultQuestion() == "Wrong !"){
+        <p>{{questionAnswers()}}</p>
+    }
+
+    <button type="button" (click)="nextQuestion()"> Next </button>
