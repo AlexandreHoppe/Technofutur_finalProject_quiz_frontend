@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output, signal } from '@angular/core';
 import { QuestionService } from '../question-service/question.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgClass } from '@angular/common';
 
 @Component({
-  imports: [],
+  imports: [NgClass],
   selector: 'app-quiz-answer',
   styleUrl: './quiz-answer.css',
   templateUrl: './quiz-answer.html',
@@ -19,6 +20,7 @@ export class QuizAnswer implements OnInit {
   quizType = signal<string | undefined>(undefined);
 
   resultQuestion = signal<string | undefined>(undefined);
+  resultQuestionBool = signal<boolean>(true);
   scoreQuestion = signal<number>(1000);
 
   constructor(private questionService: QuestionService, private router: Router, private route: ActivatedRoute){}
@@ -41,18 +43,11 @@ export class QuizAnswer implements OnInit {
         this.quizLength.set(answers?.answers[2]);
         this.quizType.set(answers?.answers[3]);
 
-        console.log(this.questionAnswers)
-        console.log(this.questionAnswered)
-        console.log(this.quizLength)
-        console.log(this.quizType)
-
         this.questionAnswered.update(question => question + 1);
-
-        console.log(this.answeredQuestion)
-        console.log(this.questionAnswers())
 
         if(this.answeredQuestion?.toLowerCase() === this.questionAnswers()?.toLowerCase()){
           this.resultQuestion.set("Correct !");
+          this.resultQuestionBool.set(true);
           switch (this.quizType()){
             case "text" : 
               this.scoreQuestion.update(score => score * 2);
@@ -60,6 +55,9 @@ export class QuizAnswer implements OnInit {
         }
         } else {
           this.resultQuestion.set("Wrong !");
+          this.resultQuestionBool.set(false);
+          console.log(this.resultQuestionBool())
+
           this.scoreQuestion.set(0);
         }
 
@@ -81,8 +79,8 @@ export class QuizAnswer implements OnInit {
           this.loadAnswer();
           this.nextQuestionConfirm.emit(false);
         } else {
-          this.router.navigate(['/quizresult'])
-      }
+          this.router.navigate(['/QuizResult'])
+        }
     },
       error: (err) => console.error('Error: ', err)
     });

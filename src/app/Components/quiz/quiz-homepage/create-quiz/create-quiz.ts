@@ -24,7 +24,7 @@ export class CreateQuiz implements OnInit {
 
   constructor(private formBuilder : FormBuilder, private quizService: QuizService, private router:Router){
     this.createQuizForm = this.formBuilder.group({
-      quiz_length : [0, [Validators.required, Validators.min(5), Validators.max(100)]],
+      quiz_length : [, [Validators.required, Validators.min(5), Validators.max(100)]],
       quiz_category : ['', Validators.required],
       quiz_type : ['', [Validators.required, Validators.maxLength(100)]],
       quiz_name : ['', [Validators.required, Validators.max(100)]]

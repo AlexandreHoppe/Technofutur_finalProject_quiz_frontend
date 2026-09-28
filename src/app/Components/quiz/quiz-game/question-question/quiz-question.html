@@ -1,6 +1,6 @@
-<p>{{question_Question() || 'Loading...'}}</p>
 <form [formGroup]="answerForm" (submit)="submitAnswer()">
-    <input type="text" formControlName="answerFormText"/>
+    <label for="answerFormText">{{question_Question() || 'Loading...'}}</label>
+    <input type="text" id="answerFormText" formControlName="answerFormText"/>
     <button type="submit">Answer</button>
 </form>
 

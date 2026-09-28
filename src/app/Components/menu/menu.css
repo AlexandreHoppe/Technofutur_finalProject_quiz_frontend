@@ -1,0 +1,39 @@
+:host {
+    display: block;
+    width: 100%;
+    position : sticky;
+    top: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-bg-color);
+    padding: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+tr{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+td:first-of-type {
+    margin-left: 50px;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: var(--text-bg-color);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+a:hover {
+    color: var(--Button-bg-color);
+    text-decoration: underline;
+    text-decoration-thickness: 3px ;
+    text-underline-offset: 10px;
+}

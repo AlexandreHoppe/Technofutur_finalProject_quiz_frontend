@@ -1,4 +1,4 @@
-.invalid-submission-overlay, .aswer-overlay {
+.aswer-overlay {
     position: fixed;
     inset: 0;
     z-index: 1000;
@@ -7,4 +7,28 @@
     place-items: center;
 
     background: rgb(0 0 0 / 50%);
+}
+
+form {
+    margin: 2% auto;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 16px;
+    width: min(90%, 80%);
+}
+
+label{
+    font-size: 20px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 1% 0;
+
+    background-color: var(--input-bg-color);
+    border-radius: 18px;
+
+    color: var(--text-color);
+
 }

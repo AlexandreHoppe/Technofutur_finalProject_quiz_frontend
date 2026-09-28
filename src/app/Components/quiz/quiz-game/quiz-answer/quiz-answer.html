@@ -1,9 +1,11 @@
-    <p>{{questionAnswered()}}/{{quizLength()}}</p>
+<div>
+    <p class="ratioQuestion">{{questionAnswered()}}/{{quizLength()}}</p>
     <p>Question {{questionAnswered()}}</p>
-    <p>{{resultQuestion()}}</p>
+    <p [ngClass]="{'resultWrong' : !resultQuestionBool(), 'resultCorrect' : resultQuestionBool() }">{{resultQuestion()}}</p>
     <p>{{scoreQuestion()}} point</p>
     @if (resultQuestion() == "Wrong !"){
-        <p>{{questionAnswers()}}</p>
+        <p>Answer : {{questionAnswers()}}</p>
     }
 
     <button type="button" (click)="nextQuestion()"> Next </button>
+</div>

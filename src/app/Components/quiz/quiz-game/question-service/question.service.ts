@@ -17,7 +17,7 @@ export class QuestionService {
 
     updateResponded(quizResponded: number, quizName: string): Observable<any>{
         return this.http.put<any>(`/api/quizzes/${encodeURIComponent(quizName)}/responded`, {
-            quizResponded: quizResponded + 1
+            quizResponded: quizResponded
         });
     }
 

@@ -10,6 +10,7 @@ import { ContinueQuiz } from './Components/quiz/quiz-homepage/continue-quiz/cont
 import { ApplicationConfig } from '@angular/core';
 import { QuizQuestion } from './Components/quiz/quiz-game/question-question/quiz-question';
 import { QuizAnswer } from './Components/quiz/quiz-game/quiz-answer/quiz-answer';
+import { QuizResult } from './Components/quiz/quiz-game/quiz-result/quiz-result';
 
 export const routes: Routes = [
     { path: '', component: HomePage },
@@ -22,4 +23,5 @@ export const routes: Routes = [
     { path: 'ContinueQuiz', component: ContinueQuiz },
     { path: 'QuizQuestion/:quizName', component: QuizQuestion },
     { path: 'QuizAnswer', component: QuizAnswer },
+    { path: 'QuizResult', component: QuizResult },
 ];

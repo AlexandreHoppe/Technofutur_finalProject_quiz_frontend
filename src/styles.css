@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    --main-bg-color: rgba(27,31,59);
+    --secondary-bg-color: rgba(35,40,77);
+    --input-bg-color: rgb(51, 58, 116);
+    --Button-bg-color: rgba(233,183,84);
+    --text-color: rgba(123,127,162);
+    font-family: 'Segoe UI', Inter, Calibri, -apple-system, sans-serif;
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+button, td[routerLink]{
+    background-color: var(--Button-bg-color);
+}
+
+button {
+    display: grid;
+    width: 25%;
+    padding: 12px;
+    grid-column: 1 / -1;
+    margin: 2% auto;
+    color: var(--text-color);
+    border-radius: 18px;
+    margin: 0 auto;
+}
+
+.invalid-submission-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: grid;
+    place-items: center;
+
+    background: rgb(0 0 0 / 50%);
+}

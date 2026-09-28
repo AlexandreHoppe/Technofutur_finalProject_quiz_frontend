@@ -1,27 +1,43 @@
+
+
 <form [formGroup]="createQuizForm" (submit)="createQuiz()">
-    <input type="number" placeholder="Number of Questions" formControlName="quiz_length"/>
+    <h1>Créer un quiz</h1>
+    <p>Configure le mode, la catégorie et le nom de ton quiz.</p>
+    <div>
+        <label for="quizName">Quiz Name</label>
+        <input type="text" id="quizName"  placeholder="quiz Name" formControlName="quiz_name"/>
+    </div>
 
-    <select formControlName="quiz_type">
-        @if (quizTypeIs) {
-            <option value="">Choose the quiz mode</option>
-        }
-        <option value="Text-Mode">Text Mode</option>
-        <option value="Multiple-Choice">Multiple Choice</option>
-        <option value="Party-Mode">Party Mode</option>
-    </select>
+    <div>
+        <label for="questionLength">Number of Questions</label>
+        <input type="number" id="questionLength" placeholder="Number of Questions" formControlName="quiz_length"/>
+    </div>
+    
+    <div>
+        <label for="quiz_type">Quiz Mode</label>
+        <select id="quiz_type" formControlName="quiz_type">
+            @if (quizTypeIs) {
+                <option value="">Choose the quiz mode</option>
+            }
+            <option value="Text-Mode">Text Mode</option>
+            <option value="Multiple-Choice">Multiple Choice</option>
+            <option value="Party-Mode">Party Mode</option>
+        </select>
+    </div>
 
-    <select formControlName="quiz_category">
-        @if (quizCategoryIs) {
-            <option value="">Choose the quiz category</option>
-        }
-        @for (category of question_categories; track category) {
-            <option value="{{ category }}">{{ category }}</option>
-        }
-    </select>
+    <div>
+        <label for="quiz_category">Quiz Category</label>
+        <select id="quiz_category" formControlName="quiz_category">
+            @if (quizCategoryIs) {
+                <option value="">Choose the quiz category</option>
+            }
+            @for (category of question_categories; track category) {
+                <option value="{{ category }}">{{ category }}</option>
+            }
+        </select>
+    </div>
 
-    <input type="text" placeholder="quiz Name" formControlName="quiz_name"/>
-
-    <button type="submit">Submit</button>
+    <button type="submit">Create Quiz</button>
 </form>
 @if (submissionValidation) {
 <div class="invalid-submission-overlay">

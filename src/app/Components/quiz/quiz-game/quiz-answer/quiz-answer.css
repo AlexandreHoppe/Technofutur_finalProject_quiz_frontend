@@ -1,11 +1,51 @@
 :host {
   display: block;
-  /*width: 90%;
-  height: 90%;*/
-  padding: 24px;
+  width: 90%;
+  height: 90%;
 
-  background: white;
+  background: var(--main-bg-color);
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 12px 40px rgb(0 0 0 / 30%);
 }
+
+div{
+  display: grid;
+  place-items: center;
+  margin: 10% auto;
+  font-size: 20px;
+}
+
+.ratioQuestion{
+  margin: 0 auto;
+  font-size: 13px;
+}
+
+.resultWrong{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  background: rgba(242,104,92,0.14);
+  color: #F2685C;
+  border: 1px solid rgba(242, 104, 92, 0.35);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.resultCorrect{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  background: rgba(97, 242, 92, 0.14);
+  color: #68f25c;
+  border: 1px solid rgba(109, 242, 92, 0.35);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+

@@ -1,0 +1,15 @@
+td[routerLink] {
+    padding: 100px 100px;
+    background-color: var(--Button-bg-color);
+    cursor: pointer;
+    border-radius: 7%;
+}
+
+table{
+    border-spacing: 24px;
+}
+
+table.routerLink{
+    
+    margin: 0 auto;
+}
